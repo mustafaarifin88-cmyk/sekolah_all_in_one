@@ -1,0 +1,56 @@
+.modal-kelulusan .modal-content {
+    border-radius: 15px;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.modal-kelulusan .modal-header {
+    background: #007bff;
+    color: #ffffff;
+    border-bottom: none;
+}
+.modal-kelulusan .modal-footer {
+    border-top: none;
+}
+.status-lulus {
+    color: #28a745;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.status-tidak-lulus {
+    color: #dc3545;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.loader {
+    display: none;
+    text-align: center;
+    margin: 20px 0;
+}
+.result-container {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+.result-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+.result-table th {
+    width: 35%;
+    border: none;
+    padding: 8px 0;
+}
+.result-table td {
+    border: none;
+    padding: 8px 0;
+}

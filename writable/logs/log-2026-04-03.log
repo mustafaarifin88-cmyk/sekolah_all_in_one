@@ -1,0 +1,344 @@
+CRITICAL - 2026-04-03 16:04:57 --> Error: Class "Locale" not found
+[Method: HEAD, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:04:57 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/I18n/TimeTrait.php:75
+Stack trace:
+#0 /home/penataus/public_html/system/I18n/TimeTrait.php(116): CodeIgniter\I18n\Time->__construct()
+#1 /home/penataus/public_html/system/HTTP/ResponseTrait.php(398): CodeIgniter\I18n\Time::now()
+#2 /home/penataus/public_html/system/HTTP/ResponseTrait.php(376): CodeIgniter\HTTP\Response->sendHeaders()
+#3 /home/penataus/public_html/system/Debug/ExceptionHandler.php(95): CodeIgniter\HTTP\Response->send()
+#4 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: HEAD, Route: /]
+in SYSTEMPATH/I18n/TimeTrait.php on line 75.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:06:12 --> Error: Class "Locale" not found
+[Method: HEAD, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:06:12 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/I18n/TimeTrait.php:75
+Stack trace:
+#0 /home/penataus/public_html/system/I18n/TimeTrait.php(116): CodeIgniter\I18n\Time->__construct()
+#1 /home/penataus/public_html/system/HTTP/ResponseTrait.php(398): CodeIgniter\I18n\Time::now()
+#2 /home/penataus/public_html/system/HTTP/ResponseTrait.php(376): CodeIgniter\HTTP\Response->sendHeaders()
+#3 /home/penataus/public_html/system/Debug/ExceptionHandler.php(95): CodeIgniter\HTTP\Response->send()
+#4 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: HEAD, Route: /]
+in SYSTEMPATH/I18n/TimeTrait.php on line 75.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:07:45 --> Error: Class "Locale" not found
+[Method: HEAD, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:07:45 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/I18n/TimeTrait.php:75
+Stack trace:
+#0 /home/penataus/public_html/system/I18n/TimeTrait.php(116): CodeIgniter\I18n\Time->__construct()
+#1 /home/penataus/public_html/system/HTTP/ResponseTrait.php(398): CodeIgniter\I18n\Time::now()
+#2 /home/penataus/public_html/system/HTTP/ResponseTrait.php(376): CodeIgniter\HTTP\Response->sendHeaders()
+#3 /home/penataus/public_html/system/Debug/ExceptionHandler.php(95): CodeIgniter\HTTP\Response->send()
+#4 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: HEAD, Route: /]
+in SYSTEMPATH/I18n/TimeTrait.php on line 75.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:07:51 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:07:51 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/Helpers/number_helper.php:142
+Stack trace:
+#0 /home/penataus/public_html/system/Helpers/number_helper.php(60): format_number()
+#1 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(158): number_to_size()
+#2 /home/penataus/public_html/app/Views/errors/html/error_exception.php(408): CodeIgniter\Debug\BaseExceptionHandler::describeMemory()
+#3 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(270): include('/home/penataus/...')
+#4 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(273): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 /home/penataus/public_html/system/Debug/ExceptionHandler.php(126): CodeIgniter\Debug\BaseExceptionHandler->render()
+#6 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#8 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH/Helpers/number_helper.php on line 142.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:10:35 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:10:35 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/Helpers/number_helper.php:142
+Stack trace:
+#0 /home/penataus/public_html/system/Helpers/number_helper.php(60): format_number()
+#1 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(158): number_to_size()
+#2 /home/penataus/public_html/app/Views/errors/html/error_exception.php(408): CodeIgniter\Debug\BaseExceptionHandler::describeMemory()
+#3 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(270): include('/home/penataus/...')
+#4 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(273): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 /home/penataus/public_html/system/Debug/ExceptionHandler.php(126): CodeIgniter\Debug\BaseExceptionHandler->render()
+#6 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#8 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH/Helpers/number_helper.php on line 142.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:11:32 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:11:32 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/Helpers/number_helper.php:142
+Stack trace:
+#0 /home/penataus/public_html/system/Helpers/number_helper.php(60): format_number()
+#1 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(158): number_to_size()
+#2 /home/penataus/public_html/app/Views/errors/html/error_exception.php(408): CodeIgniter\Debug\BaseExceptionHandler::describeMemory()
+#3 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(270): include('/home/penataus/...')
+#4 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(273): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 /home/penataus/public_html/system/Debug/ExceptionHandler.php(126): CodeIgniter\Debug\BaseExceptionHandler->render()
+#6 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#8 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH/Helpers/number_helper.php on line 142.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:11:35 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:11:35 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/Helpers/number_helper.php:142
+Stack trace:
+#0 /home/penataus/public_html/system/Helpers/number_helper.php(60): format_number()
+#1 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(158): number_to_size()
+#2 /home/penataus/public_html/app/Views/errors/html/error_exception.php(408): CodeIgniter\Debug\BaseExceptionHandler::describeMemory()
+#3 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(270): include('/home/penataus/...')
+#4 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(273): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 /home/penataus/public_html/system/Debug/ExceptionHandler.php(126): CodeIgniter\Debug\BaseExceptionHandler->render()
+#6 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#8 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH/Helpers/number_helper.php on line 142.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:12:39 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:12:39 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/Helpers/number_helper.php:142
+Stack trace:
+#0 /home/penataus/public_html/system/Helpers/number_helper.php(60): format_number()
+#1 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(158): number_to_size()
+#2 /home/penataus/public_html/app/Views/errors/html/error_exception.php(408): CodeIgniter\Debug\BaseExceptionHandler::describeMemory()
+#3 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(270): include('/home/penataus/...')
+#4 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(273): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 /home/penataus/public_html/system/Debug/ExceptionHandler.php(126): CodeIgniter\Debug\BaseExceptionHandler->render()
+#6 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#8 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH/Helpers/number_helper.php on line 142.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:18:28 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:18:28 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/Helpers/number_helper.php:142
+Stack trace:
+#0 /home/penataus/public_html/system/Helpers/number_helper.php(60): format_number()
+#1 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(158): number_to_size()
+#2 /home/penataus/public_html/app/Views/errors/html/error_exception.php(408): CodeIgniter\Debug\BaseExceptionHandler::describeMemory()
+#3 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(270): include('/home/penataus/...')
+#4 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(273): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 /home/penataus/public_html/system/Debug/ExceptionHandler.php(126): CodeIgniter\Debug\BaseExceptionHandler->render()
+#6 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#8 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH/Helpers/number_helper.php on line 142.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-03 16:19:32 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 189.
+ 1 SYSTEMPATH/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-03 16:19:32 --> ErrorException: Uncaught Error: Class "Locale" not found in /home/penataus/public_html/system/Helpers/number_helper.php:142
+Stack trace:
+#0 /home/penataus/public_html/system/Helpers/number_helper.php(60): format_number()
+#1 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(158): number_to_size()
+#2 /home/penataus/public_html/app/Views/errors/html/error_exception.php(408): CodeIgniter\Debug\BaseExceptionHandler::describeMemory()
+#3 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(270): include('/home/penataus/...')
+#4 /home/penataus/public_html/system/Debug/BaseExceptionHandler.php(273): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 /home/penataus/public_html/system/Debug/ExceptionHandler.php(126): CodeIgniter\Debug\BaseExceptionHandler->render()
+#6 /home/penataus/public_html/system/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#8 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/penataus/public_html/system/Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 /home/penataus/public_html/system/Boot.php(67): CodeIgniter\Boot::initializeCodeIgniter()
+#2 /home/penataus/public_html/index.php(59): CodeIgniter\Boot::bootWeb()
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH/Helpers/number_helper.php on line 142.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+DEBUG - 2026-04-03 16:24:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:24:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:24:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:24:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:26:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:26:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:27:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:27:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:29:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:29:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:29:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:30:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:30:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:30:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:30:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:30:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:30:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:31:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:31:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:31:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:31:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:31:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:32:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:32:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:32:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:32:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:33:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:34:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:34:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:34:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:34:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:34:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:34:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:35:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 16:35:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 20:04:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 20:31:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 17:10:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 17:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 17:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 17:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-03 17:11:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
