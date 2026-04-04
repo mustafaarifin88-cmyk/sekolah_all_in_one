@@ -181,6 +181,8 @@ $routes->group('admin', ['filter' => 'admin'], static function ($routes) {
         $routes->post('update_pengeluaran/(:num)', 'Admin\Keuangan::update_pengeluaran/$1');
         $routes->get('hapus_pengeluaran/(:num)', 'Admin\Keuangan::hapus_pengeluaran/$1');
         $routes->get('laporan', 'Admin\Keuangan::laporan');
+        $routes->get('laporan/cetak_pdf', 'Admin\Keuangan::cetak_laporan_pdf');
+        $routes->get('laporan/cetak_excel', 'Admin\Keuangan::cetak_laporan_excel');
     });
 
     $routes->group('sarpras', static function ($routes) {
