@@ -48,16 +48,22 @@
                         <thead>
                             <tr>
                                 <th width="5%" class="text-center">No</th>
+                                <th width="15%" class="text-center">Hari</th>
                                 <th width="15%" class="text-center">Waktu PBM</th>
-                                <th width="20%" class="text-center">Kelas</th>
-                                <th width="30%">Mata Pelajaran</th>
-                                <th width="30%">Guru Pengampu</th>
+                                <th width="15%" class="text-center">Kelas</th>
+                                <th width="25%">Mata Pelajaran</th>
+                                <th width="25%">Guru Pengampu</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($jadwals as $key => $row): ?>
                             <tr>
                                 <td class="text-center fw-bold text-muted"><?= $key + 1 ?></td>
+                                <td class="text-center">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 px-3 py-1 rounded-pill text-uppercase">
+                                        <?= $hari ?>
+                                    </span>
+                                </td>
                                 <td class="text-center fw-semibold text-danger">
                                     <i class="far fa-clock me-1"></i> <?= substr($row['jam_mulai'], 0, 5) ?> - <?= substr($row['jam_selesai'], 0, 5) ?>
                                 </td>

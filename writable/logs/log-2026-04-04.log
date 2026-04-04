@@ -185,3 +185,27 @@ WARNING - 2026-04-04 02:42:24 --> [DEPRECATED] strtoupper(): Passing null to par
 14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
 15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-04 02:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-04-04 02:56:51 --> [DEPRECATED] strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\backend\sidebar.php on line 133.
+ 1 APPPATH\Views\layout\backend\sidebar.php(133): strtoupper(null)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\Sekolah\\app\\Views\\layout\\backend\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(487): CodeIgniter\View\View->render('layout/backend/sidebar', null, true)
+ 5 APPPATH\Views\layout\backend\template.php(98): CodeIgniter\View\View->include('layout/backend/sidebar')
+ 6 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\Sekolah\\app\\Views\\layout\\backend\\template.php')
+ 7 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(254): CodeIgniter\View\View->render('layout/backend/template', [], true)
+ 9 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/aplikasi/set_mapel', [], true)
+10 APPPATH\Controllers\Admin\Aplikasi.php(265): view('admin/aplikasi/set_mapel', [...])
+11 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin\Aplikasi->set_mapel()
+12 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Aplikasi))
+13 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-04 02:57:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-04 02:57:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-04 02:57:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-04 02:57:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-04 02:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-04 02:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
