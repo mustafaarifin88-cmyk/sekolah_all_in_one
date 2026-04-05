@@ -184,8 +184,14 @@ class Akademik extends BaseController
 
     public function guru()
     {
-        $model = new GuruModel();
-        $data['guru'] = $model->findAll();
+        $db = \Config\Database::connect();
+        
+        $builder = $db->table('guru_tendik');
+        $builder->select('guru_tendik.*, users.role as role_user, users.username');
+        $builder->join('users', "users.id_relasi = guru_tendik.id_guru AND users.role != 'siswa'", 'left');
+        
+        $data['guru'] = $builder->get()->getResultArray();
+        
         return view('admin/akademik/guru', $data);
     }
 
@@ -607,7 +613,6 @@ class Akademik extends BaseController
         $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
         
-        // Bagian Header (Kop Sekolah)
         $sheet->setCellValue('A1', strtoupper($identitas['nama_dinas'] ?? 'DINAS PENDIDIKAN'));
         $sheet->setCellValue('A2', strtoupper($identitas['nama_sekolah'] ?? 'NAMA SEKOLAH'));
         $sheet->setCellValue('A3', $identitas['alamat_sekolah'] ?? 'Alamat Sekolah');
@@ -617,7 +622,6 @@ class Akademik extends BaseController
         $sheet->getStyle('A1:A3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:A2')->getFont()->setBold(true);
         
-        // Info Identitas Siswa
         $sheet->setCellValue('A5', 'Nama Siswa');
         $sheet->setCellValue('B5', ': ' . $siswa['nama_siswa']);
         $sheet->setCellValue('A6', 'NIS/NISN');
@@ -627,7 +631,6 @@ class Akademik extends BaseController
         $sheet->setCellValue('E6', 'Tahun Ajaran');
         $sheet->setCellValue('F6', ': ' . ($nilai[0]['tahun_ajaran'] ?? '-'));
         
-        // Header Tabel Nilai
         $sheet->setCellValue('A8', 'No');
         $sheet->setCellValue('B8', 'Mata Pelajaran');
         $sheet->setCellValue('C8', 'Semester');
@@ -651,7 +654,6 @@ class Akademik extends BaseController
             $rowExcel++;
         }
         
-        // Tanda Tangan Kepsek Bagian Bawah
         $rowExcel += 2;
         $sheet->setCellValue('F'.$rowExcel, 'Kepala Sekolah,');
         $rowExcel += 4;
