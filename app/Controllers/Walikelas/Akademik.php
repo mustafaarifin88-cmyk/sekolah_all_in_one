@@ -146,18 +146,26 @@ class Akademik extends BaseController
         $db = \Config\Database::connect();
         $id_guru = session()->get('id_relasi');
         
-        $builder = $db->table('set_mapel_guru');
-        $builder->select('set_mapel_guru.id_kelas, kelas.nama_kelas, set_mapel_guru.id_mapel, mapel.nama_mapel');
-        $builder->join('kelas', 'kelas.id_kelas = set_mapel_guru.id_kelas', 'left');
-        $builder->join('mapel', 'mapel.id_mapel = set_mapel_guru.id_mapel', 'left');
-        $builder->where('set_mapel_guru.id_guru', $id_guru);
-        $builder->distinct();
-        $data['tugas_mengajar'] = $builder->get()->getResultArray();
-        
-        $data['siswa'] = [];
-        if(!empty($data['tugas_mengajar'])) {
-            $id_kelas_array = array_column($data['tugas_mengajar'], 'id_kelas');
-            $data['siswa'] = $db->table('siswa')->whereIn('id_kelas', $id_kelas_array)->get()->getResultArray();
+        $tugas = $db->table('set_mapel_guru')->where('id_guru', $id_guru)->get()->getResultArray();
+        $id_kelas_list = array_values(array_unique(array_column($tugas, 'id_kelas')));
+        $id_mapel_list = array_values(array_unique(array_column($tugas, 'id_mapel')));
+
+        if (!empty($id_kelas_list)) {
+            $data['kelas'] = $db->table('kelas')->whereIn('id_kelas', $id_kelas_list)->get()->getResultArray();
+            $data['siswa'] = $db->table('siswa')
+                                ->select('siswa.*, kelas.nama_kelas')
+                                ->join('kelas', 'kelas.id_kelas = siswa.id_kelas', 'left')
+                                ->whereIn('siswa.id_kelas', $id_kelas_list)
+                                ->get()->getResultArray();
+        } else {
+            $data['kelas'] = [];
+            $data['siswa'] = [];
+        }
+
+        if (!empty($id_mapel_list)) {
+            $data['mapel'] = $db->table('mapel')->whereIn('id_mapel', $id_mapel_list)->get()->getResultArray();
+        } else {
+            $data['mapel'] = [];
         }
         
         $nilaiBuilder = $db->table('nilai_rapor');
@@ -166,7 +174,9 @@ class Akademik extends BaseController
         $nilaiBuilder->join('mapel', 'mapel.id_mapel = nilai_rapor.id_mapel', 'left');
         $nilaiBuilder->join('kelas', 'kelas.id_kelas = nilai_rapor.id_kelas', 'left');
         $nilaiBuilder->where('nilai_rapor.id_guru', $id_guru);
+        
         $data['nilai_rapor'] = $nilaiBuilder->get()->getResultArray();
+        $data['rapor'] = $data['nilai_rapor'];
         
         return view('walikelas/input_nilai', $data);
     }
@@ -174,12 +184,11 @@ class Akademik extends BaseController
     public function simpan_nilai()
     {
         $model = new RaporModel();
-        $tugas = explode('-', $this->request->getPost('tugas_mengajar'));
         
         $data = [
             'id_siswa' => $this->request->getPost('id_siswa'),
-            'id_kelas' => $tugas[0],
-            'id_mapel' => $tugas[1],
+            'id_kelas' => $this->request->getPost('id_kelas'),
+            'id_mapel' => $this->request->getPost('id_mapel'),
             'id_guru' => session()->get('id_relasi'),
             'semester' => $this->request->getPost('semester'),
             'tahun_ajaran' => $this->request->getPost('tahun_ajaran'),
@@ -192,12 +201,11 @@ class Akademik extends BaseController
     public function update_nilai($id)
     {
         $model = new RaporModel();
-        $tugas = explode('-', $this->request->getPost('tugas_mengajar'));
         
         $data = [
             'id_siswa' => $this->request->getPost('id_siswa'),
-            'id_kelas' => $tugas[0],
-            'id_mapel' => $tugas[1],
+            'id_kelas' => $this->request->getPost('id_kelas'),
+            'id_mapel' => $this->request->getPost('id_mapel'),
             'semester' => $this->request->getPost('semester'),
             'tahun_ajaran' => $this->request->getPost('tahun_ajaran'),
             'nilai' => $this->request->getPost('nilai')
