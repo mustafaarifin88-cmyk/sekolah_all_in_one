@@ -2,9 +2,6 @@
 
 use CodeIgniter\Router\RouteCollection;
 
-/**
- * @var RouteCollection $routes
- */
 $routes->get('/', 'Frontend::index');
 $routes->get('berita', 'Frontend::berita');
 $routes->get('berita/detail/(:num)', 'Frontend::detail_berita/$1');
@@ -276,6 +273,8 @@ $routes->group('walikelas', ['filter' => 'walikelas'], static function ($routes)
         $routes->get('jadwal', 'Walikelas\Akademik::jadwal');
         $routes->get('pantau_nilai', 'Walikelas\Akademik::pantau_nilai');
         $routes->get('cetak_rapor', 'Walikelas\Akademik::cetak_rapor');
+        $routes->get('cetak_rapor_pdf/(:num)', 'Walikelas\Akademik::cetak_rapor_pdf/$1');
+        $routes->get('cetak_rapor_excel/(:num)', 'Walikelas\Akademik::cetak_rapor_excel/$1');
         $routes->get('input_nilai', 'Walikelas\Akademik::input_nilai');
         $routes->post('simpan_nilai', 'Walikelas\Akademik::simpan_nilai');
         $routes->post('update_nilai/(:num)', 'Walikelas\Akademik::update_nilai/$1');
