@@ -264,9 +264,17 @@ class Akademik extends BaseController
         ];
         $model->update($id, $data);
 
-        $user = $userModel->where('id_relasi', $id)->where('role', 'guru')->first();
+        // Cari user yang id_relasinya sesuai, tanpa membatasi hanya role 'guru'
+        $user = $userModel->where('id_relasi', $id)->where('role !=', 'siswa')->first();
         if ($user) {
             $userData = ['username' => $this->request->getPost('username')];
+            
+            // Tangkap perubahan role jika form menyediakan input role
+            $role_post = $this->request->getPost('role');
+            if (!empty($role_post)) {
+                $userData['role'] = $role_post;
+            }
+
             $password = $this->request->getPost('password');
             if (!empty($password)) {
                 $userData['password'] = password_hash($password, PASSWORD_DEFAULT);
@@ -291,7 +299,8 @@ class Akademik extends BaseController
         $model = new GuruModel();
         $userModel = new UserModel();
         
-        $user = $userModel->where('id_relasi', $id)->where('role', 'guru')->first();
+        // Sesuaikan juga pada fungsi hapus agar foto profil ikut terhapus
+        $user = $userModel->where('id_relasi', $id)->where('role !=', 'siswa')->first();
         if ($user) {
             if ($user['foto'] && $user['foto'] !== 'default.png' && file_exists('uploads/profil/' . $user['foto'])) {
                 unlink('uploads/profil/' . $user['foto']);
