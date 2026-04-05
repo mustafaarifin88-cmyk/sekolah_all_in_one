@@ -106,18 +106,47 @@ class Akademik extends BaseController
         $wali = $db->table('set_kelas_wali')->where('id_guru', $id_guru)->get()->getRow();
         $id_kelas_wali = $wali ? $wali->id_kelas : null;
 
+        $rapor_lengkap = [];
+
         if($id_kelas_wali){
-            $builder = $db->table('nilai_rapor');
-            $builder->select('nilai_rapor.*, siswa.nama_siswa, mapel.nama_mapel, guru_tendik.nama_lengkap as nama_guru');
-            $builder->join('siswa', 'siswa.id_siswa = nilai_rapor.id_siswa');
-            $builder->join('mapel', 'mapel.id_mapel = nilai_rapor.id_mapel');
-            $builder->join('guru_tendik', 'guru_tendik.id_guru = nilai_rapor.id_guru', 'left');
-            $builder->where('nilai_rapor.id_kelas', $id_kelas_wali);
-            $data['rapor'] = $builder->get()->getResultArray();
-        } else {
-            $data['rapor'] = [];
+            $siswa = $db->table('siswa')->where('id_kelas', $id_kelas_wali)->orderBy('nama_siswa', 'ASC')->get()->getResultArray();
+            
+            $builder = $db->table('set_mapel_guru');
+            $builder->select('set_mapel_guru.id_mapel, mapel.nama_mapel, guru_tendik.nama_lengkap as nama_guru');
+            $builder->join('mapel', 'mapel.id_mapel = set_mapel_guru.id_mapel', 'left');
+            $builder->join('guru_tendik', 'guru_tendik.id_guru = set_mapel_guru.id_guru', 'left');
+            $builder->where('set_mapel_guru.id_kelas', $id_kelas_wali);
+            $builder->distinct();
+            $mapel_kelas = $builder->get()->getResultArray();
+
+            $nilai_rapor = $db->table('nilai_rapor')->where('id_kelas', $id_kelas_wali)->get()->getResultArray();
+            $nilai_indexed = [];
+            foreach($nilai_rapor as $n) {
+                $nilai_indexed[$n['id_siswa']][$n['id_mapel']] = $n;
+            }
+
+            foreach($siswa as $s) {
+                foreach($mapel_kelas as $mk) {
+                    $id_s = $s['id_siswa'];
+                    $id_m = $mk['id_mapel'];
+                    
+                    $nilai = isset($nilai_indexed[$id_s][$id_m]) ? $nilai_indexed[$id_s][$id_m]['nilai'] : null;
+                    $semester = isset($nilai_indexed[$id_s][$id_m]) ? $nilai_indexed[$id_s][$id_m]['semester'] : '-';
+                    $tahun_ajaran = isset($nilai_indexed[$id_s][$id_m]) ? $nilai_indexed[$id_s][$id_m]['tahun_ajaran'] : '-';
+
+                    $rapor_lengkap[] = [
+                        'nama_siswa' => $s['nama_siswa'],
+                        'nama_mapel' => $mk['nama_mapel'],
+                        'nama_guru'  => $mk['nama_guru'],
+                        'semester'   => $semester,
+                        'tahun_ajaran' => $tahun_ajaran,
+                        'nilai'      => $nilai
+                    ];
+                }
+            }
         }
         
+        $data['rapor'] = $rapor_lengkap;
         return view('walikelas/pantau_nilai', $data);
     }
 
