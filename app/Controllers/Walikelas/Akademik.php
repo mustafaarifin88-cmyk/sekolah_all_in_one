@@ -170,6 +170,127 @@ class Akademik extends BaseController
         return view('walikelas/cetak_rapor', $data);
     }
 
+    public function cetak_rapor_pdf($id_siswa)
+    {
+        $db = \Config\Database::connect();
+        
+        $identitas = $db->table('identitas_sekolah')->get()->getRowArray();
+        $siswa = $db->table('siswa')
+                    ->select('siswa.*, kelas.nama_kelas')
+                    ->join('kelas', 'kelas.id_kelas = siswa.id_kelas', 'left')
+                    ->where('id_siswa', $id_siswa)
+                    ->get()->getRowArray();
+                    
+        if (!$siswa) return redirect()->back()->with('error', 'Data siswa tidak ditemukan.');
+
+        $nilai = $db->table('nilai_rapor')
+                    ->select('nilai_rapor.*, mapel.nama_mapel, guru_tendik.nama_lengkap as nama_guru')
+                    ->join('mapel', 'mapel.id_mapel = nilai_rapor.id_mapel', 'left')
+                    ->join('guru_tendik', 'guru_tendik.id_guru = nilai_rapor.id_guru', 'left')
+                    ->where('nilai_rapor.id_siswa', $id_siswa)
+                    ->orderBy('mapel.nama_mapel', 'ASC')
+                    ->get()->getResultArray();
+
+        $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
+        
+        // Kita menggunakan template format pdf yang sudah dibuat untuk Admin
+        $html = view('admin/akademik/format_cetak_rapor', [
+            'identitas' => $identitas,
+            'siswa' => $siswa,
+            'nilai' => $nilai
+        ]);
+
+        $mpdf->WriteHTML($html);
+        $this->response->setHeader('Content-Type', 'application/pdf');
+        $mpdf->Output('Rapor_' . str_replace(' ', '_', $siswa['nama_siswa']) . '.pdf', 'I');
+    }
+
+    public function cetak_rapor_excel($id_siswa)
+    {
+        $db = \Config\Database::connect();
+        
+        $identitas = $db->table('identitas_sekolah')->get()->getRowArray();
+        $siswa = $db->table('siswa')
+                    ->select('siswa.*, kelas.nama_kelas')
+                    ->join('kelas', 'kelas.id_kelas = siswa.id_kelas', 'left')
+                    ->where('id_siswa', $id_siswa)
+                    ->get()->getRowArray();
+                    
+        if (!$siswa) return redirect()->back()->with('error', 'Data siswa tidak ditemukan.');
+
+        $nilai = $db->table('nilai_rapor')
+                    ->select('nilai_rapor.*, mapel.nama_mapel, guru_tendik.nama_lengkap as nama_guru')
+                    ->join('mapel', 'mapel.id_mapel = nilai_rapor.id_mapel', 'left')
+                    ->join('guru_tendik', 'guru_tendik.id_guru = nilai_rapor.id_guru', 'left')
+                    ->where('nilai_rapor.id_siswa', $id_siswa)
+                    ->orderBy('mapel.nama_mapel', 'ASC')
+                    ->get()->getResultArray();
+
+        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        
+        $sheet->setCellValue('A1', strtoupper($identitas['nama_dinas'] ?? 'DINAS PENDIDIKAN'));
+        $sheet->setCellValue('A2', strtoupper($identitas['nama_sekolah'] ?? 'NAMA SEKOLAH'));
+        $sheet->setCellValue('A3', $identitas['alamat_sekolah'] ?? 'Alamat Sekolah');
+        $sheet->mergeCells('A1:F1');
+        $sheet->mergeCells('A2:F2');
+        $sheet->mergeCells('A3:F3');
+        $sheet->getStyle('A1:A3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('A1:A2')->getFont()->setBold(true);
+        
+        $sheet->setCellValue('A5', 'Nama Siswa');
+        $sheet->setCellValue('B5', ': ' . $siswa['nama_siswa']);
+        $sheet->setCellValue('A6', 'NIS/NISN');
+        $sheet->setCellValue('B6', ': ' . $siswa['nis'] . ' / ' . $siswa['nisn']);
+        $sheet->setCellValue('E5', 'Kelas');
+        $sheet->setCellValue('F5', ': ' . $siswa['nama_kelas']);
+        $sheet->setCellValue('E6', 'Tahun Ajaran');
+        $sheet->setCellValue('F6', ': ' . ($nilai[0]['tahun_ajaran'] ?? '-'));
+        
+        $sheet->setCellValue('A8', 'No');
+        $sheet->setCellValue('B8', 'Mata Pelajaran');
+        $sheet->setCellValue('C8', 'Semester');
+        $sheet->setCellValue('D8', 'Nilai');
+        $sheet->setCellValue('E8', 'Keterangan');
+        $sheet->setCellValue('F8', 'Guru Pengampu');
+        $sheet->getStyle('A8:F8')->getFont()->setBold(true);
+        $sheet->getStyle('A8:F8')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+        
+        $rowExcel = 9;
+        $no = 1;
+        foreach($nilai as $n) {
+            $sheet->setCellValue('A'.$rowExcel, $no++);
+            $sheet->setCellValue('B'.$rowExcel, $n['nama_mapel']);
+            $sheet->setCellValue('C'.$rowExcel, $n['semester']);
+            $sheet->setCellValue('D'.$rowExcel, $n['nilai']);
+            $keterangan = $n['nilai'] >= 75 ? 'Tuntas' : 'Belum Tuntas';
+            $sheet->setCellValue('E'.$rowExcel, $keterangan);
+            $sheet->setCellValue('F'.$rowExcel, $n['nama_guru']);
+            $sheet->getStyle('A'.$rowExcel.':F'.$rowExcel)->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+            $rowExcel++;
+        }
+        
+        $rowExcel += 2;
+        $sheet->setCellValue('F'.$rowExcel, 'Kepala Sekolah,');
+        $rowExcel += 4;
+        $sheet->setCellValue('F'.$rowExcel, $identitas['nama_kepsek'] ?? '.......................');
+        $sheet->setCellValue('F'.($rowExcel+1), 'NIP. ' . ($identitas['nip_kepsek'] ?? '-'));
+        
+        foreach(range('A','F') as $columnID) {
+            $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        }
+        
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $filename = 'Rapor_' . str_replace(' ', '_', $siswa['nama_siswa']) . '.xlsx';
+        
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="'. $filename .'"');
+        header('Cache-Control: max-age=0');
+        
+        $writer->save('php://output');
+        exit();
+    }
+
     public function input_nilai()
     {
         $db = \Config\Database::connect();
