@@ -193,7 +193,6 @@ class Akademik extends BaseController
 
         $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
         
-        // Kita menggunakan template format pdf yang sudah dibuat untuk Admin
         $html = view('admin/akademik/format_cetak_rapor', [
             'identitas' => $identitas,
             'siswa' => $siswa,
