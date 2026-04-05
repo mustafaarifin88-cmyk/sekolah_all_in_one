@@ -15,25 +15,25 @@
         <div class="modern-card p-4 mb-4" style="background: var(--theme-gradient);">
             <div class="d-flex align-items-center">
                 <div class="bg-white bg-opacity-25 rounded-circle d-flex justify-content-center align-items-center me-3 text-white" style="width: 60px; height: 60px;">
-                    <i class="fas fa-binoculars fs-3"></i>
+                    <i class="fas fa-search fs-3"></i>
                 </div>
                 <div class="text-white">
-                    <h4 class="fw-bold mb-1">Pantau Input Nilai Guru Lain</h4>
-                    <p class="mb-0 opacity-75 fs-7">Melihat perkembangan pengisian rapor oleh seluruh guru untuk kelas Anda.</p>
+                    <h4 class="fw-bold m-0">Pemantauan Nilai Rapor Siswa</h4>
+                    <p class="mt-1 mb-0 fs-7 opacity-75">Lihat seluruh perkembangan input nilai oleh Guru Mapel di kelas binaan Anda.</p>
                 </div>
             </div>
         </div>
 
         <div class="modern-card p-0 overflow-hidden border">
             <div class="table-responsive">
-                <table class="table table-hover table-modern mb-0">
+                <table class="table table-hover table-modern mb-0" id="tabelRapor">
                     <thead>
                         <tr>
                             <th width="5%" class="text-center rounded-start">No</th>
-                            <th>Nama Siswa</th>
-                            <th>Mapel & Pengampu</th>
-                            <th class="text-center">Periode</th>
-                            <th class="text-center rounded-end">Nilai</th>
+                            <th width="25%">Nama Siswa</th>
+                            <th width="35%">Mata Pelajaran & Guru</th>
+                            <th width="15%" class="text-center">Tahun / SMT</th>
+                            <th width="20%" class="text-center rounded-end">Nilai Rapor</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,13 +45,23 @@
                                 <span class="fw-bold text-primary"><?= $row['nama_mapel'] ?></span><br>
                                 <span class="text-muted fs-7"><i class="fas fa-chalkboard-teacher me-1 text-success"></i> <?= $row['nama_guru'] ?></span>
                             </td>
-                            <td class="text-center text-secondary fs-7 fw-semibold"><?= $row['tahun_ajaran'] ?> <br> SMT <?= $row['semester'] ?></td>
+                            <td class="text-center text-secondary fs-7 fw-semibold">
+                                <?php if($row['tahun_ajaran'] !== '-'): ?>
+                                    <?= $row['tahun_ajaran'] ?> <br> SMT <?= $row['semester'] ?>
+                                <?php else: ?>
+                                    -
+                                <?php endif; ?>
+                            </td>
                             <td class="text-center">
-                                <span class="badge <?= $row['nilai'] >= 75 ? 'bg-success' : 'bg-danger' ?> rounded-pill px-4 py-2 fs-5 shadow-sm"><?= $row['nilai'] ?></span>
+                                <?php if($row['nilai'] !== null): ?>
+                                    <span class="badge <?= $row['nilai'] >= 75 ? 'bg-success' : 'bg-danger' ?> rounded-pill px-4 py-2 fs-5 shadow-sm"><?= $row['nilai'] ?></span>
+                                <?php else: ?>
+                                    <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 rounded-pill px-3 py-2 fs-7 shadow-sm"><i class="fas fa-clock me-1"></i> Belum Dinilai</span>
+                                <?php endif; ?>
                             </td>
                         </tr>
                         <?php endforeach; else: ?>
-                        <tr><td colspan="5" class="text-center py-5 text-muted"><i class="fas fa-search fs-1 mb-3 opacity-50 d-block"></i>Belum ada data nilai masuk dari guru mapel.</td></tr>
+                        <tr><td colspan="5" class="text-center py-5 text-muted"><i class="fas fa-search fs-1 mb-3 opacity-50 d-block"></i>Belum ada data siswa / mapel di kelas Anda.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
